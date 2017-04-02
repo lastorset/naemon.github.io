@@ -24,6 +24,10 @@ If you follow these instructions, here's what you'll end up with:
 <li>The Naemon web interface will be accessible at http://localhost/naemon/</li>
 </ul>
 
+### Before you begin
+
+If you wish to use Thruk, follow the [Thruk installation instructions](https://www.thruk.org/documentation/install.html). If not, skip the `naemon-thruk` package below.
+
 ### Install instruction 
 
 {{ site.warn }}Don't forget to change your password from default, instruction are found below version specific installation instructions <a href="#change_default_password_for_thruk">here</a>{{ site.end }}
@@ -42,12 +46,11 @@ apt-get install apache2 apache2-utils libapache2-mod-fcgid libfontconfig1 libgd3
 cd ~/
 mkdir naemon
 cd naemon/
+wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/libnaemon_{{ site.release_version }}_debian8_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-core-dbg_{{ site.release_version }}_debian8_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-core_{{ site.release_version }}_debian8_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-dev_{{ site.release_version }}_debian8_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-livestatus_{{ site.release_version }}_debian8_amd64.deb
-wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-thruk-libs_{{ site.release_version }}_debian8_amd64.deb
-wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-thruk-reporting_{{ site.release_version }}_debian8_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon-thruk_{{ site.release_version }}_debian8_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian8/amd64/naemon_{{ site.release_version }}_debian8_amd64.deb
 ```
@@ -85,7 +88,7 @@ service apache2 restart
 **Install dependencies**
 
 ```
-apt-get install apache2 libapache2-mod-fcgid libfontconfig1 libgd2-xpm libjpeg8 libmysqlclient18 libpng12-0 libxpm4 xvfb 
+apt-get install apache2 libapache2-mod-fcgid libfontconfig1 libgd2-xpm libglib2.0-dev libicu48 libjpeg8 libmysqlclient18 libpng12-0 libxpm4 xvfb 
 ```
 
 **Download Naemon**
@@ -94,12 +97,11 @@ apt-get install apache2 libapache2-mod-fcgid libfontconfig1 libgd2-xpm libjpeg8 
 cd ~/
 mkdir naemon
 cd naemon/
+wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/libnaemon_{{ site.release_version }}_debian7_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-core-dbg_{{ site.release_version }}_debian7_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-core_{{ site.release_version }}_debian7_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-dev_{{ site.release_version }}_debian7_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-livestatus_{{ site.release_version }}_debian7_amd64.deb
-wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-thruk-libs_{{ site.release_version }}_debian7_amd64.deb
-wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-thruk-reporting_{{ site.release_version }}_debian7_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon-thruk_{{ site.release_version }}_debian7_amd64.deb
 wget http://labs.consol.de/naemon/release/v{{ site.release_version }}/debian7/amd64/naemon_{{ site.release_version }}_debian7_amd64.deb
 ```
